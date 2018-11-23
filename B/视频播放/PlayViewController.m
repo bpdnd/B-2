@@ -23,7 +23,7 @@
     for (int i=0; i<5; i++) {
         Model *model = [[Model alloc]init];
         model.isOne = NO;
-        if (i==1) {
+        if (i==0) {
             model.isOne = YES;
         }
         [self.dataSource addObject:model];
