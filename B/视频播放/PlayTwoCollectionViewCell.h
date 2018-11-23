@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Header.h"
 @interface PlayTwoCollectionViewCell : UICollectionViewCell
-@property(nonatomic,strong) UILabel *label;
+@property(nonatomic,strong) UIImageView *imageView;
+@property(nonatomic,strong) UILabel *totalDurationLabel;
 @end
