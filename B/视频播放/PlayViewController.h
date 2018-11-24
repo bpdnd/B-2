@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Header.h"
-#import "Model.h"
 #import "PlayOneCollectionViewCell.h"
 #import "PlayTwoCollectionViewCell.h"
+#import "PlayListModel.h"
 @interface PlayViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong) UICollectionView *collectionView;
 @property(nonatomic,strong) NSMutableArray *dataSource;

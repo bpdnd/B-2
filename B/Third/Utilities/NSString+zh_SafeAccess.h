@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <AVFoundation/AVFoundation.h>
 @interface NSString (zh_SafeAccess)
 
 /// 从字符串的起始处提取到某个位置结束
@@ -21,5 +21,12 @@
 
 /// 删除字符串中的末尾字符
 - (NSString *)deleteLastCharacter;
+/**
+ 视频时长
+ 
+ @param videoUrl 视频url
+ @return 时长字符串
+ */
++(NSString *)getVideoTime:(NSString *)videoUrl;
 
 @end

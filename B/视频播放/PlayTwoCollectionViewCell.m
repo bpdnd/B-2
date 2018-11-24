@@ -20,22 +20,24 @@
         layer.strokeColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:layer];
         self.imageView.backgroundColor = [UIColor clearColor];
-        self.totalDurationLabel.text = @"12:20";
-        self.totalDurationLabel.textColor = [UIColor blackColor];
+        
+        self.totalDurationLabel.textColor = [UIColor whiteColor];
     }
     return self;
 }
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/3*2)];
-        [_imageView sd_setImageWithURL: [NSURL URLWithString:@"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542976518583&di=1666fff5fee7cae52efaad784fa90b24&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F32fa828ba61ea8d3d8d6c33f9c0a304e251f5810.jpg"]];
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_imageView.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(8, 8)];
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = path.CGPath;
         layer.fillColor = [UIColor clearColor].CGColor;
         layer.strokeColor = [UIColor clearColor].CGColor;
-        _imageView.layer.masksToBounds = YES;
-        [_imageView.layer addSublayer:layer];
+        UIView *maskView = [[UIView alloc]initWithFrame:_imageView.bounds];
+        [maskView.layer addSublayer:layer];
+        [_imageView addSubview:maskView];
+        //[maskView.layer addSublayer:layer];
+        //_imageView.maskView = maskView;
         [self addSubview:_imageView];
     }
     return _imageView;
@@ -55,5 +57,22 @@
     }
     return _totalDurationLabel;
 }
+-(void)setListModel:(PlayListModel *)listModel{
+    if (listModel != nil) {
+        //图片
+        if (listModel.imageUrl.length != 0) {
+            [self.imageView sd_setImageWithURL: [NSURL URLWithString:listModel.imageUrl] placeholderImage:[UIImage imageNamed:@"icon_playListPL"]];
+        }else{
+            self.imageView.image = [UIImage getVideoPreViewImage:listModel.videoUrl withSecond:(listModel.videoSecondForImage.length==0? @"1": listModel.videoSecondForImage)];
+        }
+        self.totalDurationLabel.text = [NSString getVideoTime:listModel.videoUrl];
+        
+    }
+}
+
+
+
+
+
 
 @end

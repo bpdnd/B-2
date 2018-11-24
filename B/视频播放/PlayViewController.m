@@ -20,16 +20,17 @@
     self.view.backgroundColor = backVCColor;
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.dataSource = [NSMutableArray array];
+    
+    //http://39.106.46.224:8085/HE/1.mp4
     for (int i=0; i<5; i++) {
-        Model *model = [[Model alloc]init];
-        model.isOne = NO;
-        if (i==0) {
-            model.isOne = YES;
-        }
+        PlayListModel *model = [[PlayListModel alloc]init];
+        model.isScroll = NO;
+        model.videoUrl = @"http://39.106.46.224:8085/HE/1.mp4";
+        model.videoSecondForImage = @"5";
         [self.dataSource addObject:model];
     }
     [self.collectionView reloadData];
-
+    
 }
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -59,13 +60,14 @@
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    Model *model = [self.dataSource objectAtIndex:indexPath.row];
-    if (model.isOne) {
+    PlayListModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    if (model.isScroll) {
         PlayOneCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"oneCell" forIndexPath:indexPath];
         
         return cell;
     }else{
         PlayTwoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"twoCell" forIndexPath:indexPath];
+        cell.listModel = model;
         return cell;
     }
     
@@ -73,8 +75,8 @@
     
 }
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    Model *model = [self.dataSource objectAtIndex:indexPath.row];
-    if (model.isOne) {
+    PlayListModel *model = [self.dataSource objectAtIndex:indexPath.row];
+    if (model.isScroll) {
         return CGSizeMake(ScreenWidth-20, 200);
     }
     return CGSizeMake((ScreenWidth-30)/2, 200);
@@ -88,7 +90,9 @@
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 10;
 }
-
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 
 
@@ -98,13 +102,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

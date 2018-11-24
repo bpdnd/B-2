@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Header.h"
+#import "PlayListModel.h"
+#import "UIImage+Color.h"
+#import "NSString+zh_SafeAccess.h"
 @interface PlayTwoCollectionViewCell : UICollectionViewCell
 @property(nonatomic,strong) UIImageView *imageView;
 @property(nonatomic,strong) UILabel *totalDurationLabel;
+@property(nonatomic,strong) PlayListModel *listModel;
 @end

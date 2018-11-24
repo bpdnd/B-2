@@ -50,4 +50,16 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
++(UIImage *)getVideoPreViewImage:(NSString *)videoUrl withSecond:(NSString *)second{
+    AVURLAsset *asset  =[[AVURLAsset alloc] initWithURL:[NSURL URLWithString:videoUrl] options:nil];
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    gen.appliesPreferredTrackTransform = YES;
+    CMTime time  = CMTimeMakeWithSeconds([second floatValue], 600);
+    NSError *error = nil;
+    CMTime actualTime;
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImage *thumd = [[UIImage alloc] initWithCGImage:image];
+    CGImageRelease(image);
+    return thumd;
+}
 @end
