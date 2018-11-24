@@ -20,8 +20,14 @@
         layer.strokeColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:layer];
         self.imageView.backgroundColor = [UIColor clearColor];
-        
         self.totalDurationLabel.textColor = [UIColor whiteColor];
+        self.imageView.userInteractionEnabled = YES;
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+//        tap.numberOfTouchesRequired = 1;
+//        tap.numberOfTapsRequired = 1;
+//        [tap addTarget:self action:@selector(tapEvent)];
+//        [self addGestureRecognizer:tap];
+        
     }
     return self;
 }

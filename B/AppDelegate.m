@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "PlayViewController.h"
+#import "PlayListViewController.h"
 #import "RecordViewController.h"
 @interface AppDelegate ()
 
@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //播放
-    PlayViewController *playVC = [[PlayViewController alloc]init];
+    PlayListViewController *playVC = [[PlayListViewController alloc]init];
     UINavigationController *playNav = [[UINavigationController alloc]initWithRootViewController:playVC];
     playNav.tabBarItem.image = [UIImage imageNamed:@"icon_playTabbar"];
     playNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_playTabbarSel"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

@@ -17,7 +17,7 @@
 		8402A12121A52F2A00095BA7 /* BUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402A12021A52F2A00095BA7 /* BUITests.m */; };
 		8402A13621A53DE100095BA7 /* GLYPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402A13521A53DE100095BA7 /* GLYPageView.m */; };
 		8455AFC821A7814600D40B0D /* GXLHttpSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFC621A7814600D40B0D /* GXLHttpSingle.m */; };
-		8455AFCC21A79FB100D40B0D /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFCB21A79FB100D40B0D /* PlayViewController.m */; };
+		8455AFCC21A79FB100D40B0D /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFCB21A79FB100D40B0D /* PlayListViewController.m */; };
 		8455AFD021A7A10700D40B0D /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFCF21A7A10700D40B0D /* RecordViewController.m */; };
 		8455AFDF21A7AC7000D40B0D /* LemonBubbleInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFD921A7AC7000D40B0D /* LemonBubbleInfo.m */; };
 		8455AFE021A7AC7000D40B0D /* LemonBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFDB21A7AC7000D40B0D /* LemonBubbleView.m */; };
@@ -84,6 +84,8 @@
 		8472E48821A9389A00BB510B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8472E48721A9389A00BB510B /* CoreGraphics.framework */; };
 		8472E48A21A938A100BB510B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8472E48921A938A000BB510B /* AVFoundation.framework */; };
 		8472E48C21A938A900BB510B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8472E48B21A938A900BB510B /* AudioToolbox.framework */; };
+		8472E49121A949EF00BB510B /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8472E49021A949EF00BB510B /* PlayViewController.m */; };
+		8472E49321A9516000BB510B /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8472E49221A9516000BB510B /* IJKMediaFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,8 +126,8 @@
 		8455AFC421A77F7700D40B0D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		8455AFC621A7814600D40B0D /* GXLHttpSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXLHttpSingle.m; sourceTree = "<group>"; };
 		8455AFC721A7814600D40B0D /* GXLHttpSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXLHttpSingle.h; sourceTree = "<group>"; };
-		8455AFCA21A79FB100D40B0D /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
-		8455AFCB21A79FB100D40B0D /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		8455AFCA21A79FB100D40B0D /* PlayListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayListViewController.h; sourceTree = "<group>"; };
+		8455AFCB21A79FB100D40B0D /* PlayListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayListViewController.m; sourceTree = "<group>"; };
 		8455AFCE21A7A10700D40B0D /* RecordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordViewController.h; sourceTree = "<group>"; };
 		8455AFCF21A7A10700D40B0D /* RecordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordViewController.m; sourceTree = "<group>"; };
 		8455AFD721A7AC7000D40B0D /* LemonBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LemonBubble.h; sourceTree = "<group>"; };
@@ -239,6 +241,9 @@
 		8472E48721A9389A00BB510B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8472E48921A938A000BB510B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8472E48B21A938A900BB510B /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8472E48F21A949EF00BB510B /* PlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		8472E49021A949EF00BB510B /* PlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		8472E49221A9516000BB510B /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		9B00AB1D30E9432550B2804A /* Pods-B.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-B.release.xcconfig"; path = "Pods/Target Support Files/Pods-B/Pods-B.release.xcconfig"; sourceTree = "<group>"; };
 		FAD2D1A93C7D6CC4897D9C93 /* libPods-B.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-B.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -251,6 +256,7 @@
 				8472E48C21A938A900BB510B /* AudioToolbox.framework in Frameworks */,
 				8472E48A21A938A100BB510B /* AVFoundation.framework in Frameworks */,
 				8472E48821A9389A00BB510B /* CoreGraphics.framework in Frameworks */,
+				8472E49321A9516000BB510B /* IJKMediaFramework.framework in Frameworks */,
 				8472E48621A9389300BB510B /* CoreMedia.framework in Frameworks */,
 				8472E48421A9388C00BB510B /* CoreVideo.framework in Frameworks */,
 				8472E48221A9388500BB510B /* libbz2.tbd in Frameworks */,
@@ -377,6 +383,7 @@
 		8402A13221A53DCE00095BA7 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				8472E49221A9516000BB510B /* IJKMediaFramework.framework */,
 				8455B05F21A7B6AF00D40B0D /* Swizzling */,
 				8455B04B21A7AE8C00D40B0D /* 缺省页 */,
 				8455B04A21A7AD4A00D40B0D /* zhPopupController-Prefix.pch */,
@@ -409,12 +416,14 @@
 		8455AFC921A79F9000D40B0D /* 视频播放 */ = {
 			isa = PBXGroup;
 			children = (
-				8455AFCA21A79FB100D40B0D /* PlayViewController.h */,
-				8455AFCB21A79FB100D40B0D /* PlayViewController.m */,
+				8455AFCA21A79FB100D40B0D /* PlayListViewController.h */,
+				8455AFCB21A79FB100D40B0D /* PlayListViewController.m */,
 				8455B05921A7B5FD00D40B0D /* PlayOneCollectionViewCell.h */,
 				8455B05A21A7B5FD00D40B0D /* PlayOneCollectionViewCell.m */,
 				8455B05621A7AFDB00D40B0D /* PlayTwoCollectionViewCell.h */,
 				8455B05721A7AFDB00D40B0D /* PlayTwoCollectionViewCell.m */,
+				8472E48F21A949EF00BB510B /* PlayViewController.h */,
+				8472E49021A949EF00BB510B /* PlayViewController.m */,
 			);
 			path = "视频播放";
 			sourceTree = "<group>";
@@ -775,6 +784,7 @@
 				8455B01B21A7AC9E00D40B0D /* UIViewController+Extension.m in Sources */,
 				8455B01921A7AC9E00D40B0D /* UIView+Layout.m in Sources */,
 				8455B01821A7AC9E00D40B0D /* UIView+Dealloc.m in Sources */,
+				8472E49121A949EF00BB510B /* PlayViewController.m in Sources */,
 				8455B01021A7AC9E00D40B0D /* UIAlertController+Extend.m in Sources */,
 				8455B05821A7AFDB00D40B0D /* PlayTwoCollectionViewCell.m in Sources */,
 				8455B04621A7AD3200D40B0D /* zhImageButton.m in Sources */,
@@ -803,7 +813,7 @@
 				8455B01721A7AC9E00D40B0D /* UIView+AddConstraints.m in Sources */,
 				8455AFE221A7AC7000D40B0D /* UIResponder+LemonBubble.m in Sources */,
 				8455B00C21A7AC9E00D40B0D /* NSDate+Extend.m in Sources */,
-				8455AFCC21A79FB100D40B0D /* PlayViewController.m in Sources */,
+				8455AFCC21A79FB100D40B0D /* PlayListViewController.m in Sources */,
 				8455AFE021A7AC7000D40B0D /* LemonBubbleView.m in Sources */,
 				8455B04521A7AD3200D40B0D /* zhFullView.m in Sources */,
 				8455B01121A7AC9E00D40B0D /* UIColor+Extend.m in Sources */,
@@ -987,6 +997,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L4B26T69J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/B/Third",
+				);
 				INFOPLIST_FILE = B/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1006,6 +1020,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L4B26T69J;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/B/Third",
+				);
 				INFOPLIST_FILE = B/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
