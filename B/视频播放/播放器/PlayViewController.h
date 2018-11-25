@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Header.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
+#import "OperationView.h" //操作视图
 @interface PlayViewController : UIViewController
 @property(nonatomic,strong) IJKFFMoviePlayerController *playerController;
 @property(nonatomic,strong) IJKFFOptions *options;
 @property(nonatomic,copy) NSString *videoUrl;
+@property(nonatomic,strong) OperationView *operationView;
+
 @end

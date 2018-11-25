@@ -20,8 +20,6 @@
     self.view.backgroundColor = backVCColor;
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.dataSource = [NSMutableArray array];
-    //http://39.106.46.224:8085/HE/1.mp4
-    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp4"];
     
     for (int i=0; i<5; i++) {
@@ -33,8 +31,13 @@
         [self.dataSource addObject:model];
     }
     [self.collectionView reloadData];
-    
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   
+}
+#pragma collectionView 懒加载以及 代理
 -(UICollectionView *)collectionView{
     if (!_collectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -97,9 +100,9 @@
     
     if (indexPath.row <=self.dataSource.count-1) {
         PlayListModel *model = [self.dataSource objectAtIndex:indexPath.row];
-        
         PlayViewController *playVC = [[PlayViewController alloc] init];
         playVC.videoUrl = model.videoUrl;
+        [playVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:playVC animated:YES];
     }
 }
