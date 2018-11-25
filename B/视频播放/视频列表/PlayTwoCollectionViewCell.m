@@ -20,13 +20,8 @@
         layer.strokeColor = [UIColor clearColor].CGColor;
         [self.layer addSublayer:layer];
         self.imageView.backgroundColor = [UIColor clearColor];
-        self.totalDurationLabel.textColor = [UIColor whiteColor];
+        self.totalDurationLabel.textColor = [UIColor blackColor];
         self.imageView.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
-//        tap.numberOfTouchesRequired = 1;
-//        tap.numberOfTapsRequired = 1;
-//        [tap addTarget:self action:@selector(tapEvent)];
-//        [self addGestureRecognizer:tap];
         
     }
     return self;
@@ -34,6 +29,7 @@
 -(UIImageView *)imageView{
     if (!_imageView) {
         _imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height/3*2)];
+        //_imageView.contentMode = UIViewContentModeCenter;
         UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:_imageView.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(8, 8)];
         CAShapeLayer *layer = [CAShapeLayer layer];
         layer.path = path.CGPath;
@@ -42,8 +38,6 @@
         UIView *maskView = [[UIView alloc]initWithFrame:_imageView.bounds];
         [maskView.layer addSublayer:layer];
         [_imageView addSubview:maskView];
-        //[maskView.layer addSublayer:layer];
-        //_imageView.maskView = maskView;
         [self addSubview:_imageView];
     }
     return _imageView;
@@ -65,20 +59,25 @@
 }
 -(void)setListModel:(PlayListModel *)listModel{
     if (listModel != nil) {
-        //图片
-        if (listModel.imageUrl.length != 0) {
-            [self.imageView sd_setImageWithURL: [NSURL URLWithString:listModel.imageUrl] placeholderImage:[UIImage imageNamed:@"icon_playListPL"]];
-        }else{
-            self.imageView.image = [UIImage getVideoPreViewImage:listModel.videoUrl withSecond:(listModel.videoSecondForImage.length==0? @"1": listModel.videoSecondForImage)];
-        }
-        self.totalDurationLabel.text = [NSString getVideoTime:listModel.videoUrl];
         
-    }
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                NSString *time = [NSString getVideoTime:listModel.videoUrl withisLocal:listModel.isLocal];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.totalDurationLabel.text = time;
+                });
+                
+                //图片
+                if (listModel.imageUrl.length != 0) {
+                    [self.imageView sd_setImageWithURL: [NSURL URLWithString:listModel.imageUrl] placeholderImage:[UIImage imageNamed:@"icon_playListPL"]];
+                }else{
+                    UIImage *image = [UIImage getVideoPreViewImage:listModel.videoUrl withSecond:(listModel.videoSecondForImage.length==0? @"1": listModel.videoSecondForImage) withisLocal:listModel.isLocal];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.imageView.image = image;
+                    });
+                }
+            });
+        }
 }
-
-
-
-
-
 
 @end

@@ -50,8 +50,16 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-+(UIImage *)getVideoPreViewImage:(NSString *)videoUrl withSecond:(NSString *)second{
-    AVURLAsset *asset  =[[AVURLAsset alloc] initWithURL:[NSURL URLWithString:videoUrl] options:nil];
++(UIImage *)getVideoPreViewImage:(NSString *)videoUrl withSecond:(NSString *)second withisLocal:(BOOL) isLocal{
+    
+    NSURL *url;
+    if (isLocal) {
+        url = [NSURL fileURLWithPath:videoUrl];
+    }else{
+        url = [NSURL URLWithString:videoUrl];
+    }
+    
+    AVURLAsset *asset  =[[AVURLAsset alloc] initWithURL:url options:nil];
     AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
     gen.appliesPreferredTrackTransform = YES;
     CMTime time  = CMTimeMakeWithSeconds([second floatValue], 600);

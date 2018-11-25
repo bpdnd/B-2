@@ -19,6 +19,6 @@
  @param second 秒
  @return 图片
  */
-+ (UIImage *)getVideoPreViewImage:(NSString *)videoUrl withSecond:(NSString *)second;
++ (UIImage *)getVideoPreViewImage:(NSString *)videoUrl withSecond:(NSString *)second withisLocal:(BOOL) isLocal;
 
 @end

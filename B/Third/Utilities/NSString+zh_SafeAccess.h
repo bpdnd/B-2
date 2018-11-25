@@ -23,10 +23,7 @@
 - (NSString *)deleteLastCharacter;
 /**
  视频时长
- 
- @param videoUrl 视频url
- @return 时长字符串
  */
-+(NSString *)getVideoTime:(NSString *)videoUrl;
++(NSString *)getVideoTime:(NSString *)videoUrl withisLocal:(BOOL) isLocal;
 
 @end

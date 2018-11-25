@@ -37,18 +37,24 @@
 - (NSString *)deleteLastCharacter {
     return [self substringToIndexSafe:self.length - 1];
 }
+
 /**
  视频时长
- 
+
  @param videoUrl 视频url
+ @param isLocal 是不是本地视频 yes 是
  @return 时长字符串
  */
-+(NSString *)getVideoTime:(NSString *)videoUrl{
++(NSString *)getVideoTime:(NSString *)videoUrl withisLocal:(BOOL) isLocal{
     //时长
-    AVURLAsset * audioAsset=[AVURLAsset URLAssetWithURL:[NSURL URLWithString:videoUrl] options:nil];
+    AVURLAsset * audioAsset;
+    if (isLocal) {
+        audioAsset=[AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:videoUrl] options:nil];
+    }else{
+       audioAsset=[AVURLAsset URLAssetWithURL:[NSURL URLWithString:videoUrl] options:nil];
+    }
     CMTime audioDuration= audioAsset.duration;
     int audioDurationSeconds = (int)CMTimeGetSeconds(audioDuration);
-    
     //时
     int hour   = (audioDurationSeconds - audioDurationSeconds%3600)/3600;
     //分

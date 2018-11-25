@@ -26,6 +26,10 @@
  视频url
  */
 @property(nonatomic,copy) NSString *videoUrl;
+/**
+ 本地视频 网络视频  yes 本地
+ */
+@property(nonatomic,assign) BOOL isLocal;
 
 /**
  封面图片url

@@ -20,12 +20,15 @@
     self.view.backgroundColor = backVCColor;
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.dataSource = [NSMutableArray array];
-    
     //http://39.106.46.224:8085/HE/1.mp4
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp4"];
+    
     for (int i=0; i<5; i++) {
         PlayListModel *model = [[PlayListModel alloc]init];
+        model.isLocal = YES;
         model.isScroll = NO;
-        model.videoUrl = @"http://39.106.46.224:8085/HE/1.mp4";
+        model.videoUrl = path;
         model.videoSecondForImage = @"5";
         [self.dataSource addObject:model];
     }
