@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "PlayListViewController.h"
 #import "RecordViewController.h"
+#import <Bugly/Bugly.h>
 @interface AppDelegate ()
 
 @end
@@ -37,6 +38,13 @@
     
     return YES;
 }
+#pragma 注册第三方
+-(void)registerThird{
+    //腾讯bugly
+    [Bugly startWithAppId:@"d9e2f966c5"];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

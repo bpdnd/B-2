@@ -77,4 +77,35 @@
     
 }
 
+
+/**
+ <#Description#>
+
+ @param audioDurationSeconds <#audioDurationSeconds description#>
+ @return <#return value description#>
+ */
++(NSString *)changeTimeInt:(int)audioDurationSeconds{
+    //时
+    int hour   = (audioDurationSeconds - audioDurationSeconds%3600)/3600;
+    //分
+    int min =  (audioDurationSeconds- hour*3600 - (audioDurationSeconds - hour *3600)%60)/60;
+    //秒
+    int sed = audioDurationSeconds-hour*3600-min*60;
+    if (hour == 0) {
+        if (min == 0) {
+            return [NSString stringWithFormat:@"00:%@",sed<=9 ? [NSString stringWithFormat:@"0%d",sed]:[NSString stringWithFormat:@"%d",sed]];
+        }else{
+            return [NSString stringWithFormat:@"%@:%@",min<=9 ? [NSString stringWithFormat:@"0%d",min]:[NSString stringWithFormat:@"%d",min],sed<=9 ? [NSString stringWithFormat:@"0%d",sed]:[NSString stringWithFormat:@"%d",sed]];
+        }
+    }else{
+        if (min == 0) {
+            return [NSString stringWithFormat:@"%d:00:%@",hour,sed<=9 ? [NSString stringWithFormat:@"0%d",sed]:[NSString stringWithFormat:@"%d",sed]];
+        }else{
+            return [NSString stringWithFormat:@"%d:%@:%@",hour,min<=9 ? [NSString stringWithFormat:@"0%d",min]:[NSString stringWithFormat:@"%d",min],sed<=9 ? [NSString stringWithFormat:@"0%d",sed]:[NSString stringWithFormat:@"%d",sed]];
+        }
+    }
+    
+}
+
+
 @end

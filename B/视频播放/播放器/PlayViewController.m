@@ -8,8 +8,9 @@
 
 #import "PlayViewController.h"
 
-@interface PlayViewController ()
-
+@interface PlayViewController (){
+    dispatch_source_t  _timer;
+}
 @end
 
 @implementation PlayViewController
@@ -19,23 +20,50 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self changeBackBtn];
     [self createUI];
-   
 }
 -(void)createUI{
     self.options = [[IJKFFOptions alloc]init];
+    self.options.showHudView = YES;
+    // 自动转屏开关
+    [self.options setFormatOptionIntValue:0 forKey:@"auto_convert"];
     self.playerController = [[IJKFFMoviePlayerController alloc]initWithContentURLString:self.videoUrl withOptions:self.options];
     self.playerController.view.frame = CGRectMake(0, 0,ScreenWidth , 300);
     self.playerController.shouldAutoplay = true;
+    /*
+     *IJKMPMovieScalingModeNone 不拉伸
+     *IJKMPMovieScalingModeAspectFit  均匀拉伸直到一个尺寸合适
+     *IJKMPMovieScalingModeAspectFill  均匀拉伸，直到电影填充可见边界。一个维度可能有被裁剪的内容
+     *IJKMPMovieScalingModeFill 不均匀伸。渲染维度将完全匹配可见边界
+     */
+    [self.playerController setScalingMode:IJKMPMovieScalingModeAspectFit];
+
+    
+    
     [self.view addSubview:self.playerController.view];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]init];
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
+    [tap addTarget:self action:@selector(playerControllerTapEvent)];
+    [self.playerController.view addGestureRecognizer:tap];
+    //操作界面
     self.operationView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+}
+#pragma playerControllerTapEvent 播放界面点击事件
+-(void)playerControllerTapEvent{
+    if (self.operationView.isHidden) {
+        self.operationView.hidden = NO;
+    }else{
         self.operationView.hidden = YES;
-    });
+    }
+    
 }
 #pragma 操作界面
 -(OperationView *)operationView{
     if (!_operationView) {
         _operationView = [[OperationView alloc]init];
+        [_operationView.stopButton addTarget:self action:@selector(operationViewStopEvent) forControlEvents:UIControlEventTouchUpInside];
         [self.playerController.view addSubview:_operationView];
         [_operationView mas_makeConstraints:^(MASConstraintMaker *make) {
              make.left.equalTo(self.playerController.view.mas_left).offset(0);
@@ -46,11 +74,27 @@
     }
     return _operationView;
 }
-
-
+-(void)operationViewStopEvent{
+        switch (self.playerController.playbackState) {
+            case IJKMPMoviePlaybackStatePaused:
+            case IJKMPMoviePlaybackStateStopped:
+                
+                [self.playerController play];
+                [self.operationView changeStopImageWithBOOL:YES];
+                break;
+            case IJKMPMoviePlaybackStatePlaying:
+                [self.playerController pause];
+                [self.operationView changeStopImageWithBOOL:NO];
+                break;
+            default:
+                break;
+        }
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.playerController prepareToPlay];
+    [self.playerController prepareToPlay]; //自动播放
+    [self createTime];
+    [self addObserver];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -68,15 +112,19 @@
     switch (self.playerController.playbackState) {
         case IJKMPMoviePlaybackStateStopped:
             NSLog(@"停止");
+            [self pauseTime];
             break;
         case IJKMPMoviePlaybackStatePlaying:
             NSLog(@"正在播放");
+           
             break;
         case IJKMPMoviePlaybackStatePaused:
             NSLog(@"暂停");
+            [self pauseTime];
             break;
         case IJKMPMoviePlaybackStateInterrupted:
             NSLog(@"打断");
+            [self pauseTime];
             break;
         case IJKMPMoviePlaybackStateSeekingForward:
             NSLog(@"快进");
@@ -88,6 +136,7 @@
             break;
     }
 }
+//当网络加载状态发生变化时
 -(void)playLoadStateDidChange:(NSNotification *)notification{
     switch (self.playerController.loadState) {
         case IJKMPMovieLoadStateUnknown:{
@@ -105,6 +154,43 @@
         }   break;
         default:
             break;
+    }
+}
+//创建定时器
+-(void)createTime{
+    __weak typeof(self) weakSelf = self;
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    //创建定时器
+    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    //何时开始
+    dispatch_time_t start = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0*NSEC_PER_SEC));
+    //时间间隔
+    uint64_t interval = (uint64_t)(1.0 * NSEC_PER_SEC);
+    dispatch_source_set_timer(_timer, start, interval, 0);
+    //设置回调
+    dispatch_source_set_event_handler(_timer, ^{
+        NSLog(@"%f/%f--%f--%ld",weakSelf.playerController.currentPlaybackTime,weakSelf.playerController.duration,weakSelf.playerController.playableDuration,(long)weakSelf.playerController.bufferingProgress);
+        [weakSelf.operationView changeSlider:weakSelf.playerController.currentPlaybackTime withDurationTime:weakSelf.playerController.duration];
+    });
+    [self startTime];
+}
+//开启定时器
+-(void)startTime{
+    if (_timer) {
+        dispatch_resume(_timer);
+    }
+}
+//暂停定时器
+-(void)pauseTime{
+    if (_timer) {
+        dispatch_suspend(_timer);
+    }
+}
+//取消定时器
+-(void) stopTimer{
+    if(_timer){
+        dispatch_source_cancel(_timer);
+        _timer = nil;
     }
 }
 

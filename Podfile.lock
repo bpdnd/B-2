@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - Bugly (2.5.0)
   - FBRetainCycleDetector (0.1.4)
   - IQKeyboardManager (6.1.1)
   - Masonry (1.1.0)
@@ -21,6 +22,7 @@ PODS:
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
   - NullSafe (1.2.3)
+  - ReactiveObjC (3.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -30,37 +32,43 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Bugly
   - IQKeyboardManager
   - Masonry
   - MJRefresh
   - MLeaksFinder
   - NullSafe
+  - ReactiveObjC
   - SDWebImage
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - Bugly
     - FBRetainCycleDetector
     - IQKeyboardManager
     - Masonry
     - MJRefresh
     - MLeaksFinder
     - NullSafe
+    - ReactiveObjC
     - SDWebImage
     - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
   NullSafe: c5dde0d07fe0136a8194d6af9e285b0322b6c068
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 5d6b06e13ad6d2c638b14b95f49d76640cc4d29e
+PODFILE CHECKSUM: c1a1824b0c016295f8f6bd534e9f9890a94c00d1
 
 COCOAPODS: 1.5.3

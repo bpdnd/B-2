@@ -8,4 +8,6 @@ pod 'YYKit'
 pod 'IQKeyboardManager'
 pod 'NullSafe'
 pod 'MJRefresh'
+pod 'ReactiveObjC'
+pod 'Bugly'  #腾讯bugly
 end
