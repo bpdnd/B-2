@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Header.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
-#import "OperationView.h" //操作视图
-@interface PlayViewController : UIViewController
+#import "PlayListModel.h"  //自定义slider
+@interface PlayViewController : UIViewController<UINavigationControllerDelegate>
 @property(nonatomic,strong) IJKFFMoviePlayerController *playerController;
 @property(nonatomic,strong) IJKFFOptions *options;
-@property(nonatomic,copy) NSString *videoUrl;
-@property(nonatomic,strong) OperationView *operationView;
-
+@property(nonatomic,strong) PlayListModel *model;
+@property(nonatomic,strong) UIImageView *pauseImage; //播放/暂停 图片
+@property(nonatomic,strong) UISlider *slider;  
 @end

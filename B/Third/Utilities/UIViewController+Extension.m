@@ -114,8 +114,6 @@
 
 #define titleKey @"title"
 #define imgNameKey @"imageName"
-
-
 -(void)changeBackBtn{
     if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
         self.edgesForExtendedLayout = UIRectEdgeNone;

@@ -30,7 +30,6 @@
  本地视频 网络视频  yes 本地
  */
 @property(nonatomic,assign) BOOL isLocal;
-
 /**
  封面图片url
  */
@@ -39,6 +38,9 @@
  当封面图片url不存在时，取视频的  秒作为封面图，默认为1
  */
 @property(nonatomic,copy) NSString *videoSecondForImage;
-
+/**
+ 视频 总时长 单位：秒
+ */
+@property(nonatomic,assign) float duration;
 
 @end

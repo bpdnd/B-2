@@ -16,9 +16,9 @@
 		8402A11621A52F2A00095BA7 /* BTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402A11521A52F2A00095BA7 /* BTests.m */; };
 		8402A12121A52F2A00095BA7 /* BUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402A12021A52F2A00095BA7 /* BUITests.m */; };
 		8402A13621A53DE100095BA7 /* GLYPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402A13521A53DE100095BA7 /* GLYPageView.m */; };
+		844AC0EA21ACDC0A005E18DB /* 发布必看.txt in Resources */ = {isa = PBXBuildFile; fileRef = 844AC0E921ACDC0A005E18DB /* 发布必看.txt */; };
 		8454D96121AA70B500B5AE61 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8454D96021AA70B500B5AE61 /* IJKMediaFramework.framework */; };
 		8454D96421AA730300B5AE61 /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8454D96321AA730300B5AE61 /* 1.mp4 */; };
-		8454D96A21AA97F400B5AE61 /* OperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8454D96921AA97F400B5AE61 /* OperationView.m */; };
 		8455AFC821A7814600D40B0D /* GXLHttpSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFC621A7814600D40B0D /* GXLHttpSingle.m */; };
 		8455AFCC21A79FB100D40B0D /* PlayListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFCB21A79FB100D40B0D /* PlayListViewController.m */; };
 		8455AFD021A7A10700D40B0D /* RecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8455AFCF21A7A10700D40B0D /* RecordViewController.m */; };
@@ -125,10 +125,9 @@
 		8402A12221A52F2A00095BA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8402A13421A53DE100095BA7 /* GLYPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLYPageView.h; sourceTree = "<group>"; };
 		8402A13521A53DE100095BA7 /* GLYPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLYPageView.m; sourceTree = "<group>"; };
+		844AC0E921ACDC0A005E18DB /* 发布必看.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "发布必看.txt"; sourceTree = "<group>"; };
 		8454D96021AA70B500B5AE61 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		8454D96321AA730300B5AE61 /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
-		8454D96821AA97F400B5AE61 /* OperationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OperationView.h; sourceTree = "<group>"; };
-		8454D96921AA97F400B5AE61 /* OperationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OperationView.m; sourceTree = "<group>"; };
 		8455AFC421A77F7700D40B0D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		8455AFC621A7814600D40B0D /* GXLHttpSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GXLHttpSingle.m; sourceTree = "<group>"; };
 		8455AFC721A7814600D40B0D /* GXLHttpSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GXLHttpSingle.h; sourceTree = "<group>"; };
@@ -357,6 +356,7 @@
 				8402A0FC21A52F2800095BA7 /* AppDelegate.h */,
 				8402A0FD21A52F2800095BA7 /* AppDelegate.m */,
 				8455AFC421A77F7700D40B0D /* Header.h */,
+				844AC0E921ACDC0A005E18DB /* 发布必看.txt */,
 				8402A10221A52F2800095BA7 /* Main.storyboard */,
 				8402A10521A52F2900095BA7 /* Assets.xcassets */,
 				8402A10721A52F2900095BA7 /* LaunchScreen.storyboard */,
@@ -436,8 +436,6 @@
 			children = (
 				8472E48F21A949EF00BB510B /* PlayViewController.h */,
 				8472E49021A949EF00BB510B /* PlayViewController.m */,
-				8454D96821AA97F400B5AE61 /* OperationView.h */,
-				8454D96921AA97F400B5AE61 /* OperationView.m */,
 			);
 			path = "播放器";
 			sourceTree = "<group>";
@@ -741,6 +739,7 @@
 				8455B03D21A7AD3200D40B0D /* sidebar_settings.png in Resources */,
 				8455B04021A7AD3200D40B0D /* sidebar_消息中心.png in Resources */,
 				8455B04221A7AD3200D40B0D /* sidebar_近期阅读.png in Resources */,
+				844AC0EA21ACDC0A005E18DB /* 发布必看.txt in Resources */,
 				8455B03E21A7AD3200D40B0D /* sidebar_我的收藏.png in Resources */,
 				8455B04121A7AD3200D40B0D /* sidebar_离线阅读.png in Resources */,
 				8455B03B21A7AD3200D40B0D /* fire_arrow.png in Resources */,
@@ -823,7 +822,6 @@
 				8455B04621A7AD3200D40B0D /* zhImageButton.m in Sources */,
 				8455B06D21A7B6AF00D40B0D /* NSMutableDictionary+Swizzling.m in Sources */,
 				8455B00E21A7AC9E00D40B0D /* NSObject+zh_CycleDetector.m in Sources */,
-				8454D96A21AA97F400B5AE61 /* OperationView.m in Sources */,
 				8455B03A21A7AD3200D40B0D /* GLWaveView.m in Sources */,
 				8455B01621A7AC9E00D40B0D /* UIScreen+Extend.m in Sources */,
 				8455B06B21A7B6AF00D40B0D /* NSDictionary+Swizzling.m in Sources */,

@@ -101,7 +101,7 @@
     if (indexPath.row <=self.dataSource.count-1) {
         PlayListModel *model = [self.dataSource objectAtIndex:indexPath.row];
         PlayViewController *playVC = [[PlayViewController alloc] init];
-        playVC.videoUrl = model.videoUrl;
+        playVC.model = model;
         [playVC setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:playVC animated:YES];
     }
